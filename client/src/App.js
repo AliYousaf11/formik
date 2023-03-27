@@ -1,10 +1,9 @@
 import "./App.css";
-import { RegisterationForm } from "./component/RegisterationForm";
-
+import { Index } from "./ModernWay/Index";
 function App() {
   return (
     <div className="App">
-      <RegisterationForm />
+      <Index />
     </div>
   );
 }
