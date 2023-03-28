@@ -29,7 +29,9 @@ export const Registeraton = () => {
   const validationSchema = Yup.object({
     name: Yup.string().required("Required!"),
     email: Yup.string().email("Invalid format").required("Required!"),
-    password: Yup.string().required("Required!"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
     confirmpassword: Yup.string()
       .oneOf([Yup.ref("password"), " "], "Password must match")
       .required("Required!"),
