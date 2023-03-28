@@ -7,8 +7,9 @@ import { FormikControl } from "../ModernWay/FormikControl";
 export const Registeraton = () => {
   // radio btn...
   const options = [
-    { key: "ABC", value: "ABC_Value" },
-    { key: "DEF", value: "DEF_Value" },
+    { key: "1 - ", value: "Male" },
+    { key: "2 - ", value: "Femail" },
+    { key: "3 - ", value: "Other" },
   ];
 
   // inistailstate....
@@ -17,7 +18,7 @@ export const Registeraton = () => {
     email: "",
     password: "",
     confirmpassword: "",
-    ModeOfcontact: "",
+    Gender: "",
     phone: "",
   };
 
@@ -32,12 +33,11 @@ export const Registeraton = () => {
     confirmpassword: Yup.string()
       .oneOf([Yup.ref("password"), " "], "Password must match")
       .required("Required!"),
-    ModeOfcontact: Yup.string().required("Required!"),
-    phone: Yup.string().when("ModeOfcontact", {
-      is: "ABC_Value",
-      then: Yup.string().required("Required!"),
-    }),
+    Gender: Yup.string().required("Required!"),
+    phone: Yup.number("Enter Number").required("Required"),
   });
+
+  ///......
   return (
     <Formik
       initialValues={initialValues}
@@ -54,29 +54,30 @@ export const Registeraton = () => {
             control="input"
           />
           <FormikControl
+            autoomplete="on"
             type="password"
             name="password"
             label="Password"
             control="input"
           />
           <FormikControl
+            autoComplete="on"
             type="password"
             name="confirmpassword"
             label="Repeat Password"
             control="input"
           />
           <FormikControl
-            type="radio"
-            name="ModeOfcontact"
-            label="ModeOfcontact"
             control="radio"
+            label="Gender"
+            name="Gender"
             options={options}
           />
           <FormikControl
+            control="input"
             type="text"
             name="phone"
-            label="Cell No"
-            control="input"
+            label="phoneNo"
           />
           <button type="submit" disabled={!formik.isValid}>
             Submit
