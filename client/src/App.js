@@ -1,5 +1,5 @@
 import "./App.css";
-import { Index } from "./ModernWay/Index";
+import { Index } from "./Registeration/Index";
 function App() {
   return (
     <div className="App">
