@@ -1,5 +1,5 @@
 import "./App.css";
-import { Index } from "./Registeration/Index";
+import { Index } from "./Login/Index";
 function App() {
   return (
     <div className="App">
