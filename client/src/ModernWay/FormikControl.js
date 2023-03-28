@@ -4,6 +4,7 @@ import { Textarea } from "./Textarea";
 import { Select } from "./Select";
 import { RadioButton } from "./RadioButton";
 import { Check } from "./Check";
+import { Image } from "../LoginImage/Image";
 //.....
 export const FormikControl = (props) => {
   const { control, ...rest } = props;
@@ -19,7 +20,9 @@ export const FormikControl = (props) => {
       return <RadioButton {...rest} />;
     case "checkbox":
       return <Check {...rest} />;
-    case "date":
+    case "file":
+      return <Image />;
+
     default:
       return null;
   }
